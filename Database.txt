@@ -1,0 +1,13 @@
+-- Create the database
+CREATE DATABASE StudentDB;
+
+-- Use the created database
+USE StudentDB;
+
+-- Create the Students table
+CREATE TABLE Students (
+    Id INT PRIMARY KEY IDENTITY(1,1), -- Auto-incrementing primary key
+    Name NVARCHAR(100) NOT NULL,      -- Name with a maximum length of 100 characters
+    Age INT NOT NULL CHECK (Age >= 1 AND Age <= 100), -- Age with validation
+    Email NVARCHAR(255) NOT NULL UNIQUE -- Email with uniqueness constraint
+);

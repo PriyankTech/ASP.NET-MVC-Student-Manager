@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Priyank.Models.Student>
+
+@{
+    ViewBag.Title = "Students List";
+}
+
+<h2>Students</h2>
+
+<div>
+    @Html.ActionLink("Create New", "Create", "Students", null, new { @class = "btn btn-primary" })
+</div>
+<br/>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Age)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => student.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.Age)
+                </td>
+                <td>
+                    @Html.ActionLink("View Details", "Details", "Students", new { id = student.Id }, new { @class = "view-link" }) |
+                    @Html.ActionLink("Edit", "Edit", "Students", new { id = student.Id }, new { @class = "edit-link" }) |
+                    @Html.ActionLink("Delete", "Delete", "Students", new { id = student.Id }, new { @class = "delete-link" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

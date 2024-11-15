@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Site.css")<!-- Ensure that your CSS bundles are correctly referenced -->
+    @Scripts.Render("~/bundles/modernizr") <!-- Include Modernizr for feature detection -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink("PRIYANK", "Index", "Students", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        @Html.ActionLink("List Students", "Index", "Students", new { area = "" }, new { @class = "nav-link" }) <!-- Link to Students Index page -->
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Create Student", "Create", "Students", new { area = "" }, new { @class = "nav-link" }) <!-- Link to Students Create page -->
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody() <!-- Render the body content here -->
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Priyank CRUD Project</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery") <!-- Include jQuery -->
+    @Scripts.Render("~/bundles/bootstrap") <!-- Include Bootstrap JS -->
+    @RenderSection("scripts", required: false) <!-- Render any additional scripts -->
+</body>
+</html>
